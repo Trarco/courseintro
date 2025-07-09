@@ -13,9 +13,9 @@
 
 .courseintro-pills-title,
 .courseintro-director-title,
-.courseintro-contacts-title, 
+.courseintro-contacts-title,
 .courseintro-committe-title,
-.courseintro-calendar-title{
+.courseintro-calendar-title {
     font-size: 1.5em;
     color: var(--custom-primary-color);
     font-weight: 700;
@@ -37,6 +37,12 @@
 .courseintro-scientific-right {
     flex: 0 0 20%;
     max-width: 20%;
+    height: 100%;
+}
+
+.courseintro-pills-wrapper,
+.courseintro-scientific-right {
+    background-color: #d1d5d6;
 }
 
 .courseintro-calendar-columns,
@@ -48,6 +54,10 @@
 .calendar-entry {
     break-inside: avoid;
     margin-bottom: 1.5rem;
+}
+
+.calendar-entry strong {
+    font-size: 1.2em;
 }
 
 /*Mobile*/

@@ -54,7 +54,7 @@ $string['committeeheading'] = 'Scientific Committee and Faculty';
 $string['calendarheading'] = 'Calendar';
 
 // Bottoni per aggiunta campi
-$string['addpill'] = 'Add another pill';
+$string['addpill'] = 'Add 5 pills';
 $string['addcontact'] = 'Add another contact';
 $string['addcommittee'] = 'Add another committee member';
-$string['addcalendarentry'] = 'Add another calendar entry';
+$string['addcalendarentry'] = 'Add 5 calendar entries';

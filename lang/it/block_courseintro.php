@@ -57,7 +57,7 @@ $string['committeeheading'] = 'Comitato scientifico e docenti';
 $string['calendarheading'] = 'Calendario';
 
 // Bottoni per aggiunta campi
-$string['addpill'] = 'Aggiungi un’altra pillola';
+$string['addpill'] = 'Aggiungi 5 pillole';
 $string['addcontact'] = 'Aggiungi un altro contatto';
 $string['addcommittee'] = 'Aggiungi un altro membro del comitato';
-$string['addcalendarentry'] = 'Aggiungi un’altra voce al calendario';
+$string['addcalendarentry'] = 'Aggiungi 5 voci al calendario';

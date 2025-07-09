@@ -11,8 +11,9 @@ class block_courseintro_edit_form extends block_edit_form
     {
         global $COURSE;
 
+        $mform->addElement('header', 'configheader', get_string('pluginname', 'block_courseintro'));
+        
         // === BANNER ===
-        $mform->addElement('header', 'configheader', get_string('bannersection', 'block_courseintro'));
         $mform->addElement('filepicker', 'config_bannerimage', get_string('bannerimage', 'block_courseintro'), null, [
             'maxbytes' => 0,
             'accepted_types' => ['.jpg', '.jpeg', '.png', '.gif']
@@ -40,7 +41,6 @@ class block_courseintro_edit_form extends block_edit_form
 
 
         // === PILLOLE ===
-        $mform->addElement('header', 'pillsection', get_string('pillsection', 'block_courseintro'));
 
         $repeatarray = [];
         $repeatarray[] = $mform->createElement('text', 'config_pills', get_string('pilllabel', 'block_courseintro'));
@@ -60,7 +60,7 @@ class block_courseintro_edit_form extends block_edit_form
             $repeateloptions,
             'config_pills_repeats',
             'config_pills_add_fields',
-            1,
+            5,
             get_string('addpill', 'block_courseintro'),
             true
         );
@@ -71,7 +71,6 @@ class block_courseintro_edit_form extends block_edit_form
         }
 
         // === CONTATTI ===
-        $mform->addElement('header', 'contactsection', get_string('contactsection', 'block_courseintro'));
 
         $repeatcontacts = [];
         $repeatcontacts[] = $mform->createElement('text', 'config_contacts', get_string('contactemail', 'block_courseintro'));
@@ -102,7 +101,6 @@ class block_courseintro_edit_form extends block_edit_form
 
 
         // === DIRETTORE SCIENTIFICO ===
-        $mform->addElement('header', 'directorsection', get_string('directorsection', 'block_courseintro'));
 
         // Campo: Nome e Cognome
         $mform->addElement('text', 'config_directorname', get_string('directorname', 'block_courseintro'));
@@ -115,7 +113,6 @@ class block_courseintro_edit_form extends block_edit_form
         $mform->setDefault('config_directordesc', '');
 
         // === COMITATO SCIENTIFICO ===
-        $mform->addElement('header', 'committeesection', get_string('committeesection', 'block_courseintro'));
 
         // Definizione dei campi ripetibili: nome + descrizione
         $repeatcommittee = [];
@@ -160,11 +157,10 @@ class block_courseintro_edit_form extends block_edit_form
         }
 
         // === CALENDARIO CON ARGOMENTI ===
-        $mform->addElement('header', 'calendarsection', get_string('calendarsection', 'block_courseintro'));
 
         // Recupera valori salvati
-        $defaultcalendar = isset($this->block->config->calendar) && is_array($this->block->config->calendar)
-            ? $this->block->config->calendar
+        $defaultcalendar = isset($this->block->config->config_calendar) && is_array($this->block->config->config_calendar)
+            ? $this->block->config->config_calendar
             : [];
 
         $repeatno = max(3, count($defaultcalendar)); // almeno 3 giorno
@@ -191,7 +187,7 @@ class block_courseintro_edit_form extends block_edit_form
             $repeateloptions,
             'config_calendar_repeats',
             'config_calendar_add_fields',
-            1,
+            5,
             get_string('addcalendarentry', 'block_courseintro'),
             true
         );
