@@ -18,10 +18,6 @@ The **Course Introduction** block provides a structured and accessible way to di
 
 * **Compatible with Moodle 4.x+**
 
-## Screenshot
-
-![Interface Example](docs/screenshot.png)
-
 ## Installation
 
 1. Clone or download the repository:
