@@ -1,72 +1,71 @@
 # Moodle Block: Course Introduction
 
-Il blocco **Course Introduction** permette di visualizzare in modo strutturato e accessibile le informazioni essenziali di un corso Moodle, migliorando l’esperienza dell’utente grazie a un’interfaccia chiara e responsive.
+The **Course Introduction** block provides a structured and accessible way to display key information about a Moodle course, enhancing the user experience with a clean and responsive interface.
 
-## Funzionalità principali
+## Key Features
 
-* Visualizzazione di:
+* Displays:
 
-  * **Banner del corso**
-  * **Date di inizio e fine** (solo lettura)
-  * **Learning pills** (etichettate e personalizzabili)
-  * **Direttore scientifico**
-  * **Comitato scientifico**
-  * **Contatti email**
-  * **Calendario** con date e argomenti, in layout responsive a due colonne
+  * **Course banner**
+  * **Start and end dates** (read-only)
+  * **Learning pills** (customizable labels)
+  * **Scientific Director**
+  * **Scientific Committee**
+  * **Email contacts**
+  * **Calendar** with dates and topics, shown in a responsive two-column layout
 
-* **Interfaccia utente ottimizzata** per accessibilità e usabilità
+* **User-friendly interface** optimized for accessibility and usability
 
-* **Compatibile con Moodle 4.x+**
+* **Compatible with Moodle 4.x+**
 
 ## Screenshot
 
-![Esempio interfaccia](docs/screenshot.png)
+![Interface Example](docs/screenshot.png)
 
-## Installazione
+## Installation
 
-1. Clona o scarica il repository:
+1. Clone or download the repository:
 
    ```bash
-   git clone https://github.com/tuo-utente/block_courseintro.git
+   git clone https://github.com/your-username/block_courseintro.git
    ```
 
-2. Copia la cartella nel path:
+2. Move the folder to:
    `your-moodle-dir/blocks/courseintro`
 
-3. Accedi a Moodle come amministratore e completa l'installazione dal pannello notifiche.
+3. Log in to Moodle as an administrator and complete the installation from the notifications page.
 
-## Traduzioni supportate
+## Supported Languages
 
-* Italiano
-* Inglese
+* Italian
+* English
 
-## Configurazione
+## Configuration
 
-Una volta aggiunto il blocco a un corso, potrai personalizzarne il contenuto tramite l'interfaccia grafica.
-Le date di inizio/fine sono sincronizzate con le impostazioni del corso Moodle e non possono essere modificate dal blocco.
+Once added to a course, the block can be fully customized through the graphical interface.
+Start and end dates are synced with the Moodle course settings and **cannot be edited from the block**.
 
-Per ogni sezione potrai:
+For each section, you can:
 
-* Aggiungere elementi dinamici (pillole, contatti, voci di calendario)
-* Visualizzare contenuti solo se valorizzati
-* Inserire HTML nei campi descrittivi (con filtri Moodle attivi)
+* Add dynamic elements (pills, contacts, calendar entries)
+* Display content only when provided
+* Insert HTML in description fields (filtered by Moodle's text filters)
 
-## Sviluppo
+## Development
 
-Tecnologie utilizzate:
+Technologies used:
 
-* PHP (conforme allo standard Moodle)
+* PHP (Moodle coding standards compliant)
 * Mustache Templates
-* CSS personalizzato (caricato automaticamente dal blocco)
-* Bootstrap 5 (compatibile con il tema Boost)
+* Custom CSS (automatically loaded by the block)
+* Bootstrap 5 (compatible with Boost theme)
 
-## Licenza
+## License
 
-Questo plugin è distribuito sotto licenza [GNU GPL v3](http://www.gnu.org/licenses/gpl-3.0.html).
+This plugin is released under the [GNU GPL v3 License](http://www.gnu.org/licenses/gpl-3.0.html).
 
 ---
 
-### Autore
+### Author
 
-Sviluppato da \[Tuo Nome o Azienda]
-Per supporto o richieste: \[[email@example.com](mailto:email@example.com)]
+Developed by Trarco
