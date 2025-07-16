@@ -22,6 +22,7 @@ $string['pluginname'] = 'Course Introduction';
 
 // Input section names
 $string['bannersection'] = 'Banner';
+$string['coursedatesection'] = 'Course Dates';
 $string['pillsection'] = 'Learning pills';
 $string['contactsection'] = 'Contacts';
 $string['directorsection'] = 'Scientific Director';

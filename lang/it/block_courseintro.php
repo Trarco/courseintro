@@ -21,6 +21,7 @@ $string['pluginname'] = 'Introduzione al corso';
 
 // Nomi delle sezioni del form
 $string['bannersection'] = 'Banner';
+$string['coursedatesection'] = 'Date del corso';
 $string['pillsection'] = 'Il corso in pillole';
 $string['contactsection'] = 'Contatti';
 $string['directorsection'] = 'Direttore scientifico';
