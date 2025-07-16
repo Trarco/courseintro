@@ -2,6 +2,10 @@
     display: none !important;
 }
 
+.courseintro-banner img {
+    width: 100%;
+}
+
 .courseintro-date {
     margin-right: 4em;
 }
