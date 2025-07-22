@@ -2,7 +2,7 @@
     display: none !important;
 }
 
-.courseintro-banner img {
+.courseintro-banner .img-fluid {
     width: 100%;
 }
 
