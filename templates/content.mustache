@@ -1,0 +1,93 @@
+<div class="block_courseintro">
+    {{#bannerurl}}
+    <div class="courseintro-banner">
+        <img src="{{bannerurl}}" alt="{{coursename}}" title="{{coursename}}" class="img-fluid">
+    </div>
+    {{/bannerurl}}
+
+    {{#showdates}}
+    <div class="courseintro-dates mt-3 d-flex flex-wrap justify-content-start gap-4">
+        <div class="courseintro-date">
+            <div class="label text-muted small">{{#str}}startdate, block_courseintro{{/str}}</div>
+            <div class="value fw-bold">{{startdate}}</div>
+        </div>
+        {{#enddate}}
+        <div class="courseintro-date">
+            <div class="label text-muted small">{{#str}}enddate, block_courseintro{{/str}}</div>
+            <div class="value fw-bold">{{enddate}}</div>
+        </div>
+        {{/enddate}}
+    </div>
+    {{/showdates}}
+
+    {{#pills.0}}
+    <div class="courseintro-pills-wrapper mt-4 p-3">
+        <h5 class="courseintro-pills-title">{{#str}}pillstitle, block_courseintro{{/str}}</h5>
+        <ul class="courseintro-pills-list" role="list" aria-label="{{#str}}pillstitle, block_courseintro{{/str}}">
+            {{#pills}}
+            <li>{{.}}</li>
+            {{/pills}}
+        </ul>
+    </div>
+    {{/pills.0}}
+
+    <hr>
+
+    <div class="courseintro-scientific-wrapper mt-4">
+        <div class="courseintro-scientific-left">
+            {{#directorname}}
+            <div class="courseintro-director">
+                <h5 class="courseintro-director-title">{{#str}}directorheading, block_courseintro{{/str}}</h5>
+                <p class="courseintro-director-desc"><strong>{{directorname}}</strong> -
+                    {{#directordesc}}{{directordesc}}{{/directordesc}}</p>
+            </div>
+            {{/directorname}}
+
+            {{#committee.0}}
+            <div class="courseintro-committee mt-3">
+                <h5 class="courseintro-committe-title">{{#str}}committeeheading, block_courseintro{{/str}}</h5>
+                {{#committee}}
+                <div class="courseintro-committee-member mt-1">
+                    <strong>{{membername}}</strong> - <span>{{memberdesc}}</span>
+                </div>
+                {{/committee}}
+            </div>
+            {{/committee.0}}
+        </div>
+
+        {{#contacts.0}}
+        <div class="courseintro-scientific-right">
+            <div class="courseintro-contacts p-3">
+                <h6 class="courseintro-contacts-title mb-2">{{#str}}contactsheading, block_courseintro{{/str}}</h6>
+                {{#contacts}}
+                <div class="courseintro-contact">
+                    <a href="mailto:{{.}}">{{.}}</a>
+                </div>
+                {{/contacts}}
+            </div>
+        </div>
+        {{/contacts.0}}
+    </div>
+
+    <hr>
+
+    {{#calendar.0}}
+    <div class="courseintro-calendar mt-4">
+        <h5 class="courseintro-calendar-title">{{#str}}calendarheading, block_courseintro{{/str}}</h5>
+        <div class="courseintro-calendar-columns">
+            {{#calendar}}
+            <div class="calendar-entry">
+                <strong>{{date}}</strong>
+                <ul>
+                    {{#entries}}
+                    <li>{{.}}</li>
+                    {{/entries}}
+                </ul>
+            </div>
+            {{/calendar}}
+        </div>
+    </div>
+    {{/calendar.0}}
+
+
+</div>

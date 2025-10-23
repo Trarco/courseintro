@@ -1,0 +1,84 @@
+.block_courseintro .card-title {
+    display: none !important;
+}
+
+.courseintro-banner .img-fluid {
+    width: 100%;
+}
+
+.courseintro-date {
+    margin-right: 4em;
+}
+
+.courseintro-date .value {
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.courseintro-pills-title,
+.courseintro-director-title,
+.courseintro-contacts-title,
+.courseintro-committe-title,
+.courseintro-calendar-title {
+    font-size: 1.5em;
+    color: var(--custom-primary-color);
+    font-weight: 700;
+
+}
+
+.courseintro-scientific-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.courseintro-scientific-left {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.courseintro-scientific-right {
+    flex: 0 0 20%;
+    max-width: 20%;
+    height: 100%;
+}
+
+.courseintro-pills-wrapper,
+.courseintro-scientific-right {
+    background-color: #d1d5d6;
+}
+
+.courseintro-calendar-columns,
+.courseintro-pills-list {
+    column-count: 2;
+    column-gap: 2rem;
+}
+
+.calendar-entry {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-entry strong {
+    font-size: 1.2em;
+}
+
+/*Mobile*/
+@media (max-width: 768px) {
+
+    .courseintro-scientific-left,
+    .courseintro-scientific-right {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .courseintro-scientific-left {
+        order: 2;
+    }
+
+    .courseintro-scientific-right {
+        order: 1;
+    }
+}
+
