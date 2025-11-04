@@ -45,7 +45,6 @@ class block_courseintro_edit_form extends block_edit_form
         ]);
 
         $mform->disabledIf('config_bannerimage', 'config_usecoursebanner', 'checked');
-        $mform->hideIf('config_bannerimage', 'config_usecoursebanner', 'checked');
 
         $mform->setDefault('config_bannerimage', $draftitemid);
 
