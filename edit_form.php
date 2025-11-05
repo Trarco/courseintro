@@ -14,28 +14,12 @@ class block_courseintro_edit_form extends block_edit_form
         $mform->addElement('header', 'configheader', get_string('pluginname', 'block_courseintro'));
 
         // === BANNER ===
-        $mform->addElement('static', 'bannersection', get_string('bannersection', 'block_courseintro'));
+        $mform->addElement('header', 'bannersection', get_string('bannersection', 'block_courseintro'));
+
         $mform->addElement('advcheckbox', 'config_usecoursebanner', get_string('usecoursebanner', 'block_courseintro'));
         $mform->addHelpButton('config_usecoursebanner', 'usecoursebanner', 'block_courseintro');
         $mform->setDefault('config_usecoursebanner', 1);
         $mform->setType('config_usecoursebanner', PARAM_INT);
-
-        $draftitemid = file_get_submitted_draft_itemid('config_bannerimage');
-        // Use a stable itemid for the permanent area. If an older config stored
-        // a custom itemid, keep using it to show existing files; otherwise fall back
-        // to the instance id so subsequent edits always preload correctly.
-        $existingitemid = !empty($this->block->config->bannerimage)
-            ? (int)$this->block->config->bannerimage
-            : (int)$this->block->instance->id;
-
-        file_prepare_draft_area(
-            $draftitemid,
-            $this->block->context->id,
-            'block_courseintro',
-            'bannerimage',
-            $existingitemid,
-            ['subdirs' => 0]
-        );
 
         $mform->addElement('filemanager', 'config_bannerimage', get_string('bannerimage', 'block_courseintro'), null, [
             'subdirs' => 0,
@@ -45,8 +29,7 @@ class block_courseintro_edit_form extends block_edit_form
         ]);
 
         $mform->disabledIf('config_bannerimage', 'config_usecoursebanner', 'checked');
-
-        $mform->setDefault('config_bannerimage', $draftitemid);
+        $mform->hideIf('config_bannerimage', 'config_usecoursebanner', 'checked');
 
         // === DATE (SOLO LETTURA) ===
         $mform->addElement('header', 'datesection', get_string('coursedatesection', 'block_courseintro'));
@@ -224,5 +207,29 @@ class block_courseintro_edit_form extends block_edit_form
                 $mform->setDefault("config_calendarentries[$i]", implode("\n", $entry['entries']));
             }
         }
+    }
+
+    public function set_data($defaults)
+    {
+        if (!empty($this->block->config->bannerimage)) {
+            $itemid = (int)$this->block->config->bannerimage;
+        } else {
+            $itemid = (int)$this->block->instance->id;
+        }
+
+        $draftid = file_get_submitted_draft_itemid('config_bannerimage');
+
+        file_prepare_draft_area(
+            $draftid,
+            $this->block->context->id,
+            'block_courseintro',
+            'bannerimage',
+            $itemid,
+            ['subdirs' => 0, 'maxbytes' => 0, 'accepted_types' => ['.jpg', '.jpeg', '.png', '.gif']]
+        );
+
+        $defaults->config_bannerimage = $draftid;
+
+        parent::set_data($defaults);
     }
 }

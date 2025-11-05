@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.5] – 2025-11-55
+### Fixed
+- Corrected banner image handling in the block edit form.
+- Moved `file_prepare_draft_area()` from `specific_definition()` to `set_data()` to comply with Moodle File API guidelines.
+- Ensured consistent use of `instance->id` as stable `itemid` for the banner image filearea.
+- Fixed intermittent issue where the uploaded banner image was not displayed when reopening the block configuration form.
+
+### Changed
+- Simplified form initialization by removing redundant draft preparation logic.
+- Improved consistency between `instance_config_save()` and `set_data()` for file persistence and reload.
+- Updated internal comments and developer documentation for clarity on file handling logic.
+
 ## [1.0.4] – 2025-10-23
 ### Added
 - Toggle to reuse the Moodle course overview image as the block banner or switch back to a custom upload.
