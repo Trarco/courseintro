@@ -196,8 +196,7 @@ class block_courseintro extends block_base
                 $permanentitemid,
                 ['subdirs' => 0, 'maxbytes' => 0, 'accepted_types' => ['.jpg', '.jpeg', '.png', '.gif']]
             );
-            // Store the stable itemid so future edits preload correctly.
-            $data->bannerimage = $permanentitemid;
+            unset($data->bannerimage);
         }
 
         // === Gestione Pills ===

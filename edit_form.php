@@ -14,12 +14,13 @@ class block_courseintro_edit_form extends block_edit_form
         $mform->addElement('header', 'configheader', get_string('pluginname', 'block_courseintro'));
 
         // === BANNER ===
-        $mform->addElement('header', 'bannersection', get_string('bannersection', 'block_courseintro'));
-
+        $mform->addElement('static', 'bannersection', get_string('bannersection', 'block_courseintro'));
         $mform->addElement('advcheckbox', 'config_usecoursebanner', get_string('usecoursebanner', 'block_courseintro'));
         $mform->addHelpButton('config_usecoursebanner', 'usecoursebanner', 'block_courseintro');
         $mform->setDefault('config_usecoursebanner', 1);
         $mform->setType('config_usecoursebanner', PARAM_INT);
+
+
 
         $mform->addElement('filemanager', 'config_bannerimage', get_string('bannerimage', 'block_courseintro'), null, [
             'subdirs' => 0,
@@ -30,6 +31,8 @@ class block_courseintro_edit_form extends block_edit_form
 
         $mform->disabledIf('config_bannerimage', 'config_usecoursebanner', 'checked');
         $mform->hideIf('config_bannerimage', 'config_usecoursebanner', 'checked');
+
+        $mform->setDefault('config_bannerimage', $draftitemid);
 
         // === DATE (SOLO LETTURA) ===
         $mform->addElement('header', 'datesection', get_string('coursedatesection', 'block_courseintro'));
@@ -211,24 +214,32 @@ class block_courseintro_edit_form extends block_edit_form
 
     public function set_data($defaults)
     {
-        if (!empty($this->block->config->bannerimage)) {
-            $itemid = (int)$this->block->config->bannerimage;
-        } else {
-            $itemid = (int)$this->block->instance->id;
+        if (empty($this->block->instance)) {
+            parent::set_data($defaults);
+            return;
         }
 
-        $draftid = file_get_submitted_draft_itemid('config_bannerimage');
+        $draftitemid = file_get_submitted_draft_itemid('config_bannerimage');
+
+        $existingitemid = !empty($this->block->config->bannerimage)
+            ? (int)$this->block->config->bannerimage
+            : (int)$this->block->instance->id;
 
         file_prepare_draft_area(
-            $draftid,
+            $draftitemid,
             $this->block->context->id,
             'block_courseintro',
             'bannerimage',
-            $itemid,
-            ['subdirs' => 0, 'maxbytes' => 0, 'accepted_types' => ['.jpg', '.jpeg', '.png', '.gif']]
+            $existingitemid,
+            [
+                'subdirs' => 0,
+                'maxbytes' => 0,
+                'maxfiles' => 1,
+                'accepted_types' => ['image']
+            ]
         );
 
-        $defaults->config_bannerimage = $draftid;
+        $defaults->config_bannerimage = $draftitemid;
 
         parent::set_data($defaults);
     }
